@@ -12,6 +12,8 @@ namespace Business.Abstract
     {
         IDataResult<List<Resume>> GetAll();
 
+        IDataResult<Resume> GetById(int id);
+
         IResult Add(Resume resume);
 
         IResult Delete(Resume resume);

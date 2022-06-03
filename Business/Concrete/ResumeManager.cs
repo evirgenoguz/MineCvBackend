@@ -38,6 +38,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Resume>>(_resumeDal.GetAll(), Messages.ResumesListed);
         }
 
+        public IDataResult<Resume> GetById(int id)
+        {
+            return new SuccessDataResult<Resume>(_resumeDal.Get(r => r.id == id));
+        }
+
         public IResult Update(Resume resume)
         {
             _resumeDal.Update(resume);

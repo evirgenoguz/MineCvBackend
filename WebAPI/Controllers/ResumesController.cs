@@ -11,12 +11,45 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ResumesController : ControllerBase
     {
-        [HttpGet]
-        public List<Resume> Get()
+
+        IResumeService _resumeService;
+
+        public ResumesController(IResumeService resumeService)
         {
-            IResumeService resumeService = new ResumeManager(new EfResumeDal());
-            var result = resumeService.GetAll();
-            return result.Data;
+            _resumeService = resumeService;
+        }
+
+        [HttpGet("getall")]
+        public IActionResult GetAll()
+        {   
+            var result = _resumeService.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbyid")]
+        public IActionResult GetById(int id)
+        {
+            var result = _resumeService.GetById(id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpPost("add")]
+        public IActionResult Post(Resume resume)
+        {
+            var result = _resumeService.Add(resume);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
 
