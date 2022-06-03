@@ -1,5 +1,8 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Business.Abstract;
 using Business.Concrete;
+using Business.DependencyResolvers.Autofac;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 
@@ -12,11 +15,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Autofac
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(builder => builder.RegisterModule(new AutofacBusinessModule()));
 
 //Singleton için Apý da performans için (içinde özel data tutulmuyorsa yapýlabilir.)
 //Dependency inject
-builder.Services.AddSingleton<IResumeService, ResumeManager>();
-builder.Services.AddSingleton<IResumeDal, EfResumeDal>();
+//builder.Services.AddSingleton<IResumeService, ResumeManager>();
+//builder.Services.AddSingleton<IResumeDal, EfResumeDal>();
 
 var app = builder.Build();
 
