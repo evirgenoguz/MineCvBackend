@@ -52,6 +52,30 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpDelete("delete")]
+        public IActionResult Delete(Resume resume)
+        {
+            var result = _resumeService.Delete(resume);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+
+        [HttpPut("update")]
+        public IActionResult Update(Resume resume)
+        {
+            var result = _resumeService.Update(resume);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        
+
 
 
 

@@ -13,6 +13,8 @@ namespace DataAccess.Concrete.EntityFramework
 
         public DbSet<Resume> Resumes { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<Language> Languages { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
          => optionsBuilder.UseSqlServer(@"Server = DESKTOP-PAPTNUR;Database = Minecvdb;Trusted_Connection=true");

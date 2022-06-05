@@ -17,6 +17,12 @@ namespace Business.DependencyResolvers.Autofac
         {
             builder.RegisterType<ResumeManager>().As<IResumeService>().SingleInstance();
             builder.RegisterType<EfResumeDal>().As<IResumeDal>().SingleInstance();
+
+            builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
+            builder.RegisterType<EfUserDal>().As<IUserDal>().SingleInstance();
+
+            builder.RegisterType<SkillManager>().As<ISkillService>().SingleInstance();
+            builder.RegisterType<EfSkillDal>().As<ISkillDal>().SingleInstance();
         }
     }
 }
