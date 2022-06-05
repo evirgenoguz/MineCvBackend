@@ -11,8 +11,8 @@ namespace Entities.Concrete
     {
         public int id { get; set; }
         public int  user_id { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string Adress { get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
+        public string adress { get; set; }
     }
 }

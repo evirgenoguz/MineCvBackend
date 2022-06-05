@@ -13,6 +13,6 @@ namespace Entities.Concrete
         public int user_id { get; set; }
         public int resume_id { get; set; }
         public string language { get; set; } //büyük harfle başlayınca ctor olarak alıyordu
-        public string LanguageLevel { get; set; }
+        public string language_level { get; set; }
     }
 }

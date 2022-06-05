@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,7 @@ namespace Business.Abstract
         IResult Delete(Resume resume);
 
         IResult Update(Resume resume);
+
+        IDataResult<List<ResumeDetailDto>> GetResumeDetails();
     }
 }

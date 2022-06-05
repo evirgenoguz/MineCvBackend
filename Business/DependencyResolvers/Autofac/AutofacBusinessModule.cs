@@ -23,6 +23,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<SkillManager>().As<ISkillService>().SingleInstance();
             builder.RegisterType<EfSkillDal>().As<ISkillDal>().SingleInstance();
+
+            builder.RegisterType<LanguageManager>().As<ILanguageService>().SingleInstance();
+            builder.RegisterType<EfLanguageDal>().As<ILanguageDal>().SingleInstance();
         }
     }
 }
